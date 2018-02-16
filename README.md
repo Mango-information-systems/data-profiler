@@ -1,6 +1,6 @@
 # d3-data-profiler
 
-Analyze JSON data structures
+Analyze the structure of javascript objects
 
 ## Installing
 
@@ -11,21 +11,21 @@ If you use NPM, `npm install d3-data-profiler`. Otherwise, download the [latest 
 
 ### Objects structure
 
-<a href="#structureStats" name="structureStats">#</a> <b>structureStats</b>(_data_, _nestingLevel_)
+<a href="#structureStats" name="structureStats">#</a> <b>structureStats</b>(_data_, _maxDepth_)
 
-Given an array of objects _data_, returns statistics about the presence of each property. _nestingLevel_ may be used to indicate how deep objects' structure may be explored.
+Given an array of objects _data_, returns statistics about the presence of each property. _maxDepth_ may be used to indicate how deep objects' structure may be explored.
 
 ### Property type
 
-<a href="#typeStats" name="typeStats">#</a> <b>typeStats</b>(_data_, _nestingLevel_)
+<a href="#typeStats" name="typeStats">#</a> <b>typeStats</b>(_data_, _maxDepth_)
 
-Given an array of objects _data_, returns data type of each property. _nestingLevel_ may be used to indicate how deep objects' structure may be explored.
+Given an array of objects _data_, returns data type of each property. _maxDepth_ may be used to indicate how deep objects' structure may be explored.
 
 ### Property values statistics
 
-<a href="#detailedStats" name="detailedStats">#</a> <b>detailedStats</b>(_data_, _fields_, _nestingLevel_)
+<a href="#detailedStats" name="detailedStats">#</a> <b>detailedStats</b>(_data_, _fields_, _maxDepth_)
 
-Given an array of objects _data_, returns data data profiling of each property. _fields_ may be used to limit the stats to be computed. _nestingLevel_ may be used to indicate how deep object structure may be explored. Data profile includes type, completeness, minValue, maxValue, averageValue, minLength, maxLength, % unique
+Given an array of objects _data_, returns data data profiling of each property. _fields_ may be used to limit the stats to be computed. _maxDepth_ may be used to indicate how deep object structure may be explored. Data profile includes type, completeness, minValue, maxValue, averageValue, minLength, maxLength, % unique
 
 ### Reverse pivot (transpose) utility function
 
