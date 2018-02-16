@@ -1,26 +1,29 @@
+import traverse from 'traverse'
+
 export default function(data, depth) {
 		
 		let counters = {}
 			, stats = []
 			
-		console.log('data', data)
-		
+		//~ console.log('data', data)
+			
 		data.forEach(function(record) {
 		
-			console.log('record', record)
-		
-			Object.keys(record).forEach(function(property) {
+			// traverse each property node of the record
+			traverse(record).map(function() {
 				
-				// count occurence
-				counters[property] = ++counters[property] || 1
-				
-				// compute min and max length
-				//~ if (['$'].indexOf(property) === -1)
-					//~ computeLength(api.name, property, product)
+				if (this.path.length > 0) { // do not compute stats for the root element
 					
+					let property = this.path.join('.')
+
+					// count occurence
+					counters[property] = ++counters[property] || 1
 					
-				
-				
+					// compute min and max length
+					//~ if (['$'].indexOf(property) === -1)
+						//~ computeLength(api.name, property, product)
+					
+				}
 			})
 
 
@@ -35,7 +38,7 @@ export default function(data, depth) {
 		})
 		
 		
-		console.log('counters', stats)
+		//~ console.log('counters', stats)
 		
 		
 		return stats
