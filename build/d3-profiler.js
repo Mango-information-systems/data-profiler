@@ -60,14 +60,14 @@
   /***************************************
    *
    * @param {object} data array
+   * @param {string?} path level at which the reverse pivot is expected to be done
    * @param {string?} keyName - default to 'name'
    * @param {string?} valueName - default to 'value'
-   * @param {string?} path level at which the reverse pivot is expected to be done
    * 
    * 
    **************************************/
 
-  function reversePivot(data, keyName, valueName, path) {
+  function reversePivot(data, path, keyName, valueName) {
   		
   		keyName = keyName || 'name' 
   		valueName = valueName || 'value'

@@ -25,7 +25,7 @@ Given an array of objects _data_, returns data data profiling of each property. 
 
 ### Utility functions
 
-<a href="#reversePivot" name="reversePivot">#</a> <b>reversePivot</b>(_data_, _keyName_, _valueName_, _startAt_) aka transpose
+<a href="#reversePivot" name="reversePivot">#</a> <b>reversePivot</b>(_data_, path_, _keyName_, _valueName_) aka transpose
 
 Sometimes, your source data set has properties under the form `{name: key, value: val}`, and you want `{key: val}` instead. 
 
@@ -54,7 +54,7 @@ let data = [
 ]
 
 
-reversePivot(data, 'name', 'value', 'headers')
+reversePivot(data, 'headers')
 // returns
 // [
 // 	body: {
