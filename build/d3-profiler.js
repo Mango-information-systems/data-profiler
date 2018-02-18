@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-hierarchy'), require('traverse')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'd3-hierarchy', 'traverse'], factory) :
-  (factory((global.d3 = global.d3 || {}),global.d3,global.traverse));
-}(this, function (exports,d3Hierarchy,traverse) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('traverse')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'traverse'], factory) :
+  (factory((global.d3 = global.d3 || {}),global.traverse));
+}(this, function (exports,traverse) { 'use strict';
 
   traverse = 'default' in traverse ? traverse['default'] : traverse;
 
@@ -77,15 +77,28 @@
   			
   		data.forEach(function(record, i) {
   		
-  			let entry = path ? record[path] : record
+  			let entry = record
   				, transposed = {}
   			
-  			entry.forEach(function(obj) {
-  				transposed[obj[keyName]] = obj[valueName]
-  			})
-  			console.log('transposed', transposed)
+  			if (path) {
   			
-  			data[i] = transposed
+  					path = path.split('.')
+  					
+  					path.forEach(function(pathElem) {
+  						entry = entry[pathElem]
+  					})
+  			}
+  			
+  			
+  			if (typeof entry !== 'undefined') {
+  			
+  				entry.forEach(function(obj) {
+  					transposed[obj[keyName]] = obj[valueName]
+  				})
+  				//~ console.log('transposed', transposed)
+  				
+  				data[i] = transposed
+  			}
   			
   		})
   		

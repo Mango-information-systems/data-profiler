@@ -24,21 +24,26 @@ tape("reversePivot() should work with implicit key / value labels", function(tes
 	test.end()
 })
 
-tape("reversePivot() should work on sub-properties via path option", function(test) {
-	var dataset =[{body: 'whatever'
-		, headers: [
-			{
-				name: 'one'
-				, value: 1
+tape("reversePivot() should work on deeply nested properties via path option", function(test) {
+	var dataset =[
+		{
+			payload: {
+				body: 'whatever'
+				, headers: [
+					{
+						name: 'one'
+						, value: 1
+					}
+					, {
+						name: 'two'
+						, value: 'whatever'
+					}
+				]
 			}
-			, {
-				name: 'two'
-				, value: 'whatever'
-			}
-		]
-	}]
+		}
+	]
 	
-	test.deepEqual(profiler.reversePivot(dataset, 'headers'), [
+	test.deepEqual(profiler.reversePivot(dataset, 'payload.headers'), [
 		{
 			'one': 1
 			, 'two': 'whatever'

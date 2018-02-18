@@ -18,15 +18,28 @@ export default function(data, path, keyName, valueName) {
 			
 		data.forEach(function(record, i) {
 		
-			let entry = path ? record[path] : record
+			let entry = record
 				, transposed = {}
 			
-			entry.forEach(function(obj) {
-				transposed[obj[keyName]] = obj[valueName]
-			})
-			//~ console.log('transposed', transposed)
+			if (path) {
 			
-			data[i] = transposed
+					path = path.split('.')
+					
+					path.forEach(function(pathElem) {
+						entry = entry[pathElem]
+					})
+			}
+			
+			
+			if (typeof entry !== 'undefined') {
+			
+				entry.forEach(function(obj) {
+					transposed[obj[keyName]] = obj[valueName]
+				})
+				//~ console.log('transposed', transposed)
+				
+				data[i] = transposed
+			}
 			
 		})
 		
