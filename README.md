@@ -37,7 +37,7 @@ let data = [
 	body: {
 		// [...]
 	}
-	, headers: {
+	, headers: [
 		{
 			name: 'location'
 			, value: 'https://example.com'
@@ -50,7 +50,7 @@ let data = [
 			name: 'date'
 			, value: 'Fri, 1 Jan 2018 10:00:00 GMT'
 		}
-	}
+	]
 ]
 
 
@@ -61,11 +61,9 @@ reversePivot(data, 'name', 'value', 'headers')
 // 		// [...]
 // 	}
 // 	, headers: {
-//	     {
-// 	      	location: 'https://example.com'
-// 	  	  , 'content-type': 'text/html; charset=UTF-8'
-// 	  	  , date: 'Fri, 1 Jan 2018 10:00:00 GMT'
-//	     }
+//		location: 'https://example.com'
+// 	    , 'content-type': 'text/html; charset=UTF-8'
+// 	    , date: 'Fri, 1 Jan 2018 10:00:00 GMT'
 // 	}
 // ]
 
