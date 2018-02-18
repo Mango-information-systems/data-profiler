@@ -1,7 +1,7 @@
 var tape = require("tape")
 	, profiler = require("../")
 
-tape("toHierarchy() formats flat structure.", function(test) {
+tape.skip("toHierarchy() formats flat structure.", function(test) {
 	var dataset = [
 		['col1', 1]
 		, ['col2', .5]
@@ -34,7 +34,8 @@ tape("toHierarchy() formats flat structure.", function(test) {
 	
 	test.end()
 })
-tape("toHierarchy() formats nested structure", function(test) {
+
+tape.skip("toHierarchy() formats nested structure", function(test) {
 	var dataset = [
 		['col1', 1]
 		, ['col2', .5]
